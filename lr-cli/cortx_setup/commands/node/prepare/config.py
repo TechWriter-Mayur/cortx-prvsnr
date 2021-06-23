@@ -114,6 +114,7 @@ class NodePrepareServerConfig(Command):
             local=True)
 
         node_roles = ['primary'] if kwargs['primary'] else ['secondary']
+        node_roles.extend(['openldap_server', 'kafka_server'])
         # set node roles
         PillarSet().run(
             f"cluster/{node}/roles",

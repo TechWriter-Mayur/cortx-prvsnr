@@ -64,7 +64,7 @@ class NodePrepareServer(NodePrepareServerConfig):
             )
             self.logger.debug("Restarting salt-minion")
             cmd_run(
-                "systemctl restart salt-minion",
+                "salt-call service.restart salt-minion",
                 background=True,
                 targets=node
             )
